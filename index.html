@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Assistant - Augment Your Ideas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Prompt Assistant</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-category="all">
+                        <i class="fas fa-th-large"></i>
+                        Tất cả
+                    </button>
+                    <button class="nav-btn" data-category="code">
+                        <i class="fas fa-code"></i>
+                        Code
+                    </button>
+                    <button class="nav-btn" data-category="creative">
+                        <i class="fas fa-palette"></i>
+                        Sáng tạo
+                    </button>
+                    <button class="nav-btn" data-category="business">
+                        <i class="fas fa-briefcase"></i>
+                        Business
+                    </button>
+                    <button class="nav-btn" data-category="analysis">
+                        <i class="fas fa-chart-line"></i>
+                        Phân tích
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="hero-title">
+                    Biến ý tưởng đơn giản thành 
+                    <span class="gradient-text">prompt hoàn chỉnh</span>
+                </h1>
+                <p class="hero-description">
+                    Chỉ cần một câu hỏi ngắn, AI sẽ suy nghĩ và tạo ra prompt chi tiết, 
+                    chuyên nghiệp để bạn đạt được kết quả tốt nhất.
+                </p>
+            </section>
+
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-container">
+                    <div class="input-group">
+                        <label for="simpleInput" class="input-label">
+                            <i class="fas fa-lightbulb"></i>
+                            Mô tả ý tưởng của bạn
+                        </label>
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="simpleInput" 
+                                class="input-field" 
+                                placeholder="Ví dụ: Tôi muốn viết một hàm Python để xử lý dữ liệu CSV..."
+                                rows="3"
+                            ></textarea>
+                            <div class="input-actions">
+                                <select id="categorySelect" class="category-select">
+                                    <option value="auto">🤖 Tự động nhận diện</option>
+                                    <option value="code">💻 Lập trình</option>
+                                    <option value="creative">🎨 Sáng tạo nội dung</option>
+                                    <option value="business">💼 Kinh doanh</option>
+                                    <option value="analysis">📊 Phân tích dữ liệu</option>
+                                    <option value="education">📚 Giáo dục</option>
+                                    <option value="research">🔬 Nghiên cứu</option>
+                                </select>
+                                
+                                <!-- AI Provider & Model Selection -->
+                                <div class="ai-selection">
+                                    <select id="providerSelect" class="provider-select">
+                                        <option value="openrouter">🆓 OpenRouter (Free Models)</option>
+                                        <option value="groq">⚡ Groq AI (Lightning Fast)</option>
+                                        <option value="gemini">⚡ Google Gemini 2.0 Flash</option>
+                                    </select>
+                                    <select id="modelSelect" class="model-select">
+                                        <option value="gpt-4o-mini">GPT-4o Mini (Fast & Cheap)</option>
+                                        <option value="gpt-4o">GPT-4o (Latest)</option>
+                                        <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                        <option value="claude-3-haiku">Claude 3 Haiku</option>
+                                        <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                                        <option value="claude-3-opus">Claude 3 Opus</option>
+                                        <option value="llama-3-8b">Llama 3 8B</option>
+                                        <option value="gemma-7b">Gemma 7B</option>
+                                    </select>
+                                </div>
+                                <button id="generateBtn" class="generate-btn" disabled>
+                                    <span class="btn-text">
+                                        <i class="fas fa-magic"></i>
+                                        Tạo Prompt
+                                    </span>
+                                    <div class="btn-loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Đang suy nghĩ...
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-container">
+                    <!-- AI Thinking Process -->
+                    <div class="thinking-process" id="thinkingProcess" style="display: none;">
+                        <div class="thinking-header">
+                            <i class="fas fa-brain"></i>
+                            <span>AI đang suy nghĩ...</span>
+                        </div>
+                        <div class="thinking-steps" id="thinkingSteps">
+                            <!-- Steps sẽ được thêm động qua JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Generated Prompt -->
+                    <div class="prompt-result" id="promptResult">
+                        <div class="result-header">
+                            <h3>
+                                <i class="fas fa-check-circle"></i>
+                                Prompt hoàn chỉnh của bạn
+                            </h3>
+                            <div class="result-actions">
+                                <button class="action-btn" id="copyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Sao chép
+                                </button>
+                                <button class="action-btn" id="saveBtn">
+                                    <i class="fas fa-bookmark"></i>
+                                    Lưu
+                                </button>
+                                <button class="action-btn" id="shareBtn">
+                                    <i class="fas fa-share"></i>
+                                    Chia sẻ
+                                </button>
+                            </div>
+                        </div>
+                        <div class="result-content" id="resultContent">
+                            <!-- Generated prompt sẽ hiển thị ở đây -->
+                        </div>
+                        <div class="result-stats" id="resultStats">
+                            <!-- Statistics sẽ hiển thị ở đây -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples Section -->
+            <section class="examples-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-lightbulb"></i>
+                        Ví dụ nhanh
+                    </h2>
+                    <p>Click vào bất kỳ ví dụ nào để thử ngay</p>
+                </div>
+                
+                <div class="examples-grid" id="examplesGrid">
+                    <!-- Examples sẽ được load động -->
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section" id="historySection" style="display: none;">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-history"></i>
+                        Lịch sử prompt
+                    </h2>
+                    <button class="clear-history-btn" id="clearHistoryBtn">
+                        <i class="fas fa-trash"></i>
+                        Xóa tất cả
+                    </button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- History items sẽ được thêm động -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 AI Prompt Assistant. Powered by FREE AI Models Only ❤️ (OpenRouter, Groq, Gemini)</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">Về chúng tôi</a>
+                    <a href="#privacy">Bảo mật</a>
+                    <a href="#contact">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading overlay removed - using in-result loading instead -->
+
+    <script src="script.js"></script>
+</body>
+</html>
