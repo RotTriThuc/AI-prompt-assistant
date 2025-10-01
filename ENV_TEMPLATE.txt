@@ -1,0 +1,34 @@
+# 🔐 API Key Configuration Template
+# ===================================
+# 
+# Copy nội dung này vào file .env
+#
+# ⚠️ IMPORTANT SECURITY INSTRUCTIONS:
+# 1. Tạo file mới tên .env trong thư mục gốc
+# 2. Copy nội dung từ file này vào .env
+# 3. Chạy: node migrate-api-keys.js để tự động mã hóa API keys
+# 4. HOẶC dùng: node encryption-utils.js encrypt để mã hóa từng key
+#
+# ===================================
+
+# Encryption Key (32 characters minimum)
+ENCRYPTION_KEY="your-32-character-secret-key!!"
+
+# Node Environment
+NODE_ENV=development
+
+# Server Configuration
+PORT=3001
+HOST=localhost
+
+# ===== ENCRYPTED API KEYS =====
+GEMINI_API_KEY_ENCRYPTED=""
+OPENROUTER_API_KEY_ENCRYPTED=""
+GROQ_API_KEY_ENCRYPTED=""
+OPENAI_API_KEY_ENCRYPTED=""
+
+# ===== API CONFIGURATION =====
+GEMINI_MODEL="gemini-2.0-flash-exp"
+OPENROUTER_MODEL="deepseek/deepseek-chat-v3.1:free"
+GROQ_MODEL="llama-3.1-8b-instant"
+

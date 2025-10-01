@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Test - AI Prompt Assistant</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: white;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.03);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .test-case {
+            background: rgba(255,255,255,0.02);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 3px solid #667eea;
+        }
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .demo-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .demo-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.4);
+        }
+        .success { color: #10b981; }
+        .warning { color: #f59e0b; }
+        .info { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🤖 AI Prompt Assistant - Demo Test</h1>
+        
+        <div class="info">
+            <p><strong>Chào mừng bạn!</strong> Đây là trang test demo để kiểm tra các tính năng của AI Prompt Assistant.</p>
+        </div>
+
+        <a href="index.html" class="demo-link">
+            🚀 Mở AI Prompt Assistant
+        </a>
+
+        <h2>📋 Test Cases Cơ Bản</h2>
+        
+        <div class="test-case">
+            <h3>🧪 Test 1: Code Generation</h3>
+            <p><strong>Input:</strong> "Tôi muốn tạo một API REST cho ứng dụng blog"</p>
+            <p><strong>Expected:</strong> AI sẽ tạo prompt chi tiết về backend architecture, database design, authentication, etc.</p>
+            <button class="test-button" onclick="testCase1()">Test Code Category</button>
+        </div>
+
+        <div class="test-case">
+            <h3>🎨 Test 2: Creative Content</h3>
+            <p><strong>Input:</strong> "Viết content marketing cho shop thời trang online"</p>
+            <p><strong>Expected:</strong> Prompt về brand strategy, target audience, content calendar, engagement tactics</p>
+            <button class="test-button" onclick="testCase2()">Test Creative Category</button>
+        </div>
+
+        <div class="test-case">
+            <h3>💼 Test 3: Business Analysis</h3>
+            <p><strong>Input:</strong> "Phân tích khả năng mở quán cafe ở trung tâm Hà Nội"</p>
+            <p><strong>Expected:</strong> Business plan với market analysis, financial projections, competitive landscape</p>
+            <button class="test-button" onclick="testCase3()">Test Business Category</button>
+        </div>
+
+        <div class="test-case">
+            <h3>📊 Test 4: Data Analysis</h3>
+            <p><strong>Input:</strong> "Phân tích dữ liệu bán hàng của cửa hàng"</p>
+            <p><strong>Expected:</strong> Data science workflow với statistical methods, visualization, insights</p>
+            <button class="test-button" onclick="testCase4()">Test Analysis Category</button>
+        </div>
+
+        <div class="test-case">
+            <h3>🤖 Test 5: Auto Detection</h3>
+            <p><strong>Input:</strong> "Tạo khóa học dạy JavaScript cho người mới bắt đầu"</p>
+            <p><strong>Expected:</strong> AI tự detect category Education và tạo curriculum design prompt</p>
+            <button class="test-button" onclick="testCase5()">Test Auto Detection</button>
+        </div>
+
+        <h2>🎯 Advanced Test Cases</h2>
+
+        <div class="test-case">
+            <h3>⚡ Test 6: Performance & UX</h3>
+            <ul>
+                <li>✅ Responsive design trên mobile/tablet</li>
+                <li>✅ Thinking process animation mượt mà</li>
+                <li>✅ Typewriter effect cho results</li>
+                <li>✅ Toast notifications hoạt động</li>
+                <li>✅ Copy/Save/Share functions</li>
+            </ul>
+            <button class="test-button" onclick="testPerformance()">Test Performance</button>
+        </div>
+
+        <div class="test-case">
+            <h3>💾 Test 7: Local Storage</h3>
+            <ul>
+                <li>History lưu trữ prompts đã tạo</li>
+                <li>Load lại prompt từ history</li>
+                <li>Clear history function</li>
+                <li>Saved prompts persistence</li>
+            </ul>
+            <button class="test-button" onclick="testStorage()">Test Storage</button>
+        </div>
+
+        <h2>🐛 Manual Testing Checklist</h2>
+        
+        <div class="test-case">
+            <h4>✅ Giao diện & UX:</h4>
+            <ul>
+                <li>[ ] Header navigation hoạt động</li>
+                <li>[ ] Input field responsive</li>
+                <li>[ ] Button states (disabled/loading)</li>
+                <li>[ ] Category selector functional</li>
+                <li>[ ] Examples clickable và load đúng</li>
+            </ul>
+            
+            <h4>✅ Core Functionality:</h4>
+            <ul>
+                <li>[ ] Generate prompt from simple input</li>
+                <li>[ ] Thinking process hiển thị từng bước</li>
+                <li>[ ] Result hiển thị với typewriter effect</li>
+                <li>[ ] Copy prompt to clipboard</li>
+                <li>[ ] Save to history</li>
+            </ul>
+            
+            <h4>✅ Advanced Features:</h4>
+            <ul>
+                <li>[ ] Auto category detection</li>
+                <li>[ ] Multiple category templates</li>
+                <li>[ ] History management</li>
+                <li>[ ] Toast notifications</li>
+                <li>[ ] Responsive design</li>
+            </ul>
+        </div>
+
+        <h2>📱 Browser Compatibility</h2>
+        
+        <div class="test-case">
+            <div class="success">✅ <strong>Supported:</strong> Chrome 70+, Firefox 65+, Safari 12+, Edge 79+</div>
+            <div class="warning">⚠️ <strong>Partial:</strong> Older browsers may have limited CSS support</div>
+            <div class="warning">❌ <strong>Not Supported:</strong> Internet Explorer</div>
+        </div>
+
+        <h2>🚀 Quick Start Guide</h2>
+        
+        <div class="test-case">
+            <ol>
+                <li><strong>Mở index.html</strong> trong browser</li>
+                <li><strong>Nhập câu hỏi đơn giản</strong> vào text area</li>
+                <li><strong>Chọn category</strong> hoặc để "Tự động nhận diện"</li>
+                <li><strong>Click "Tạo Prompt"</strong> và xem AI thinking</li>
+                <li><strong>Sử dụng kết quả</strong> với Copy/Save/Share</li>
+            </ol>
+        </div>
+
+        <div class="info">
+            <p><strong>🎉 Chúc mừng!</strong> Bạn đã có một công cụ AI Prompt Assistant hoàn chỉnh. 
+            Hãy test các tính năng và chia sẻ feedback!</p>
+        </div>
+    </div>
+
+    <script>
+        function testCase1() {
+            window.open('index.html', '_blank');
+            // Pre-fill với test data sẽ được implement trong future version
+            alert('✅ Mở app và test với input: "Tôi muốn tạo một API REST cho ứng dụng blog"');
+        }
+
+        function testCase2() {
+            window.open('index.html', '_blank');
+            alert('✅ Mở app và test với input: "Viết content marketing cho shop thời trang online"');
+        }
+
+        function testCase3() {
+            window.open('index.html', '_blank');
+            alert('✅ Mở app và test với input: "Phân tích khả năng mở quán cafe ở trung tâm Hà Nội"');
+        }
+
+        function testCase4() {
+            window.open('index.html', '_blank');
+            alert('✅ Mở app và test với input: "Phân tích dữ liệu bán hàng của cửa hàng"');
+        }
+
+        function testCase5() {
+            window.open('index.html', '_blank');
+            alert('✅ Mở app và test với input: "Tạo khóa học dạy JavaScript cho người mới bắt đầu"');
+        }
+
+        function testPerformance() {
+            if (navigator.userAgent.indexOf('Mobile') !== -1) {
+                alert('📱 Testing trên mobile - check responsive design và touch interactions');
+            } else {
+                alert('💻 Testing trên desktop - check animations và keyboard shortcuts (Ctrl+Enter)');
+            }
+        }
+
+        function testStorage() {
+            alert('💾 Test localStorage: Generate vài prompts, check history section, test reload và delete');
+        }
+
+        // Auto-run basic compatibility check
+        document.addEventListener('DOMContentLoaded', () => {
+            const features = {
+                'localStorage': typeof Storage !== 'undefined',
+                'fetch': typeof fetch !== 'undefined',
+                'async/await': typeof Promise !== 'undefined',
+                'CSS Grid': CSS.supports('display', 'grid'),
+                'CSS Flexbox': CSS.supports('display', 'flex')
+            };
+
+            console.log('🔍 Browser Compatibility Check:', features);
+            
+            const unsupported = Object.entries(features)
+                .filter(([key, value]) => !value)
+                .map(([key]) => key);
+            
+            if (unsupported.length > 0) {
+                console.warn('⚠️ Unsupported features:', unsupported);
+            } else {
+                console.log('✅ All features supported!');
+            }
+        });
+    </script>
+</body>
+</html>

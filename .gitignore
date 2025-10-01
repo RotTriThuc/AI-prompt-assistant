@@ -1,204 +1,54 @@
-# ==========================================
-# AI Prompt Assistant - Git Ignore File
-# ==========================================
-
-# ========== SECURITY - API KEYS ==========
-# CRITICAL: Prevent API keys from being committed
+# ===== SECURITY: API Keys & Secrets =====
 .env
 .env.local
+.env.production
 .env.*.local
 *.key
-*-api-key.txt
-secrets/
-config/secrets.*
+*.pem
 
-# ========== NODE MODULES ==========
+# ===== Node.js =====
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
+package-lock.json
 
-# ========== PYTHON ==========
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-venv/
-ENV/
-env/
+# ===== IDE & Editors =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
-# ========== BACKUP FILES ==========
-# Ignore all backup folders and files
-_BACKUP_*/
-*-backup.*
-*.backup
-*.bak
-*.old
-
-# ========== TEST FILES ==========
-# Ignore temporary test files
-test-*.html
-test-*.js
-test-*.py
-demo-*.html
-*-test.html
-*.test.js
-
-# ========== LOGS ==========
+# ===== Logs =====
 logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-# ========== OS FILES ==========
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Windows
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-*.stackdump
-[Dd]esktop.ini
-$RECYCLE.BIN/
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-*.lnk
-
-# Linux
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-.nfs*
-
-# ========== IDE & EDITORS ==========
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# Cursor
-.cursor/
-
-# JetBrains
-.idea/
-*.iml
-*.iws
-*.ipr
-out/
-
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-# Vim
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-Session.vim
-Sessionx.vim
-.netrwhist
-
-# ========== BUILD & DIST ==========
+# ===== Build & Distribution =====
 dist/
 build/
 *.min.js
 *.min.css
-.cache/
-.parcel-cache/
-.next/
-out/
-.nuxt/
-.docusaurus/
-.serverless/
-.fusebox/
-.dynamodb/
-.tern-port
 
-# ========== COVERAGE & TESTS ==========
-coverage/
-*.lcov
-.nyc_output/
-.grunt/
-.lock-wscript
-jspm_packages/
-web_modules/
-*.tsbuildinfo
-
-# ========== MISC ==========
-# Temporary files
+# ===== Temporary Files =====
+tmp/
+temp/
 *.tmp
-*.temp
-~$*
 
-# Package lock files (optional - uncomment if needed)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# ===== Testing =====
+coverage/
+.nyc_output/
 
-# ========== PROJECT SPECIFIC ==========
-# Keep main files but ignore specific test/debug files
-openrouter-optimization-report.md
-test-optimizations.html
-test-openrouter-models.html
+# ===== OS Files =====
+Thumbs.db
+.DS_Store
 
-# Ignore generated documentation (if auto-generated)
-# docs/generated/
+# ===== Backup Files =====
+*.bak
+*.backup
+*~
 
-# ========== DEPLOYMENT ==========
-# Vercel
-.vercel
-
-# Netlify
-.netlify
-
-# Local deployment configs
-.deployment/
-deploy-config.local.json
+# ===== Project Specific =====
+test-keys.txt
+api-keys-backup.txt

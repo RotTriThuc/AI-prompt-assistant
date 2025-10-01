@@ -5,11 +5,19 @@
   "main": "proxy-server.js",
   "scripts": {
     "start": "node proxy-server.js",
+    "start-secure": "node proxy-server-secure.js",
     "dev": "nodemon proxy-server.js",
+    "dev-secure": "nodemon proxy-server-secure.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-deps": "npm install express cors node-fetch",
+    "install-deps": "npm install express cors node-fetch dotenv",
     "setup": "npm install && echo '✅ Dependencies installed successfully!'",
-    "test-gemini": "curl http://localhost:3001/api/test-openai",
+    "setup-encryption": "node migrate-api-keys.js",
+    "encrypt-key": "node encryption-utils.js encrypt",
+    "decrypt-key": "node encryption-utils.js decrypt",
+    "generate-key": "node encryption-utils.js generate-key",
+    "demo": "node demo-encryption.js",
+    "kill-port": "powershell -Command \"$p = Get-NetTCPConnection -LocalPort 3001 -ErrorAction SilentlyContinue; if($p){Stop-Process -Id $p.OwningProcess -Force; Write-Host 'Killed port 3001'}\"",
+    "test-gemini": "curl http://localhost:3001/api/test-gemini",
     "test-openrouter": "curl http://localhost:3001/api/test-openrouter",
     "test-groq": "curl http://localhost:3001/api/test-groq",
     "test-all": "curl http://localhost:3001/api/test-all",
@@ -31,7 +39,8 @@
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
