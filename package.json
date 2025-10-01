@@ -1,7 +1,7 @@
 {
   "name": "ai-prompt-assistant",
-  "version": "1.0.0",
-  "description": "AI Prompt Assistant với OpenAI GPT-4 integration và proxy server để bypass CORS",
+  "version": "2.0.0",
+  "description": "AI Prompt Assistant với Triple-Provider: Google Gemini + OpenRouter AI + Groq AI - Proxy server để bypass CORS",
   "main": "proxy-server.js",
   "scripts": {
     "start": "node proxy-server.js",
@@ -9,7 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-deps": "npm install express cors node-fetch",
     "setup": "npm install && echo '✅ Dependencies installed successfully!'",
-    "check-openai": "curl http://localhost:3001/api/test-openai"
+    "test-gemini": "curl http://localhost:3001/api/test-openai",
+    "test-openrouter": "curl http://localhost:3001/api/test-openrouter",
+    "test-groq": "curl http://localhost:3001/api/test-groq",
+    "test-all": "curl http://localhost:3001/api/test-all",
+    "check-health": "curl http://localhost:3001/health",
+    "api-info": "curl http://localhost:3001/api/info"
   },
   "keywords": [
     "ai",
